@@ -20,6 +20,10 @@ nav{position:sticky;top:0;z-index:10;background:rgba(248,246,242,.92);backdrop-f
 .logo{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:28px;letter-spacing:-.03em}
 .navlinks{display:flex;gap:28px;font-size:14px;color:var(--muted)}
 .navlinks a:hover{color:var(--ink)}
+.lang-switch{display:flex;align-items:center;gap:4px;margin-left:14px;padding:3px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.lang-btn{border:0;background:transparent;color:var(--muted);font:700 11px/1 Inter,Arial,sans-serif;letter-spacing:.08em;padding:7px 9px;border-radius:999px;cursor:pointer}
+.lang-btn.active{background:#20232a;color:#fff}
+@media(max-width:800px){.navlinks{display:none}.nav{height:64px}.lang-switch{margin-left:auto}.logo{font-size:20px}}
 .hero{padding:52px 0 42px}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
 .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--accent);font-weight:800;margin-bottom:18px}
@@ -80,6 +84,10 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
   <a class="logo" href="#">Nicole Gomez</a>
   <div class="navlinks">
    <a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#why-me">Why me</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+  </div>
+  <div class="lang-switch" aria-label="Language selector">
+   <button class="lang-btn active" type="button" data-lang-btn="en">EN</button>
+   <button class="lang-btn" type="button" data-lang-btn="es">ES</button>
   </div>
  </div>
 </nav>
@@ -228,5 +236,188 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
   <span>Customer Service • Virtual Assistance • Remote Support</span>
  </div>
 </footer>
+
+<script>
+(function(){
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
+
+  const T = {
+    en: {
+      nav: ["About","Services","Experience","Why me","Skills","Contact"],
+      heroEyebrow:"Remote Support • Customer Service • Administrative Assistance",
+      heroTitle:"Helping businesses stay organized, responsive & customer-focused.",
+      availability:"Available for Remote Opportunities",
+      heroText:"I'm Nicole Gomez, an Industrial Engineer with experience in operations, planning, logistics and cross-functional coordination. I provide reliable remote support for customer service, administrative tasks, follow-ups and day-to-day operations.",
+      heroBtn1:"Let's work together →", heroBtn2:"Explore my services",
+      profileTitle:"Nicole Gomez", profileSub:"Customer Service | Administrative Assistance - Remote Support",
+      stat1:"Years of experience", stat2:"Work-ready", stat3:"Languages",
+      aboutEyebrow:"About me", aboutTitle:"Reliable support backed by real operational experience.",
+      about:[
+        "I'm an Industrial Engineer with professional experience in Supply Chain, planning, inventory, logistics and coordination with internal teams, suppliers and international partners.",
+        "I also have experience working from home and coordinating activities remotely, which strengthened my ability to work independently, manage priorities, communicate clearly and stay accountable for deadlines.",
+        "That experience taught me to organize large amounts of information, follow up on multiple activities and solve problems proactively.",
+        "Today, I'm bringing those skills into remote Customer Service and Administrative Assistance, where I can help businesses keep their customers supported and their daily operations organized."
+      ],
+      servicesEyebrow:"What I can help with", servicesTitle:"Flexible support for your day-to-day needs.",
+      servicesIntro:"I can adapt to your processes, tools and priorities, whether you need customer-facing support, administrative assistance or operational follow-up.",
+      servicesH:["Customer Service","Virtual Assistance","Data & Administrative Support","Follow-up & Coordination"],
+      servicesP:[
+        "Email and chat support, customer inquiries, follow-ups, issue resolution and clear professional communication.",
+        "Administrative support, task organization, documentation, research, calendar coordination and daily follow-up.",
+        "Excel, data entry, tracking files, reports, information updates and structured documentation.",
+        "Tracking pending tasks, coordinating with stakeholders, monitoring deadlines and keeping information up to date."
+      ],
+      expEyebrow:"Professional background", expTitle:"Experience that brings structure to remote support.",
+      expP:"My background in Supply Chain and operations has strengthened the same skills that matter in remote support: organization, communication, follow-up, attention to detail and problem solving.",
+      expH:["Supply Chain & Operations","Cross-functional Coordination","Process Follow-up","Data & Reporting"],
+      expCards:[
+        "Professional experience coordinating planning, inventory, logistics and operational processes in a structured corporate environment.",
+        "Worked with internal teams, suppliers and international partners, keeping information, documentation and follow-ups aligned.",
+        "Experienced in monitoring deadlines, pending activities, material availability and operational continuity.",
+        "Comfortable working with Excel, reports, tracking files and data to support organized decision-making."
+      ],
+      skillsEyebrow:"Skills & tools", skillsTitle:"Organized, adaptable and comfortable with digital tools.",
+      skillsIntro:"A combination of operational experience and digital skills allows me to learn new workflows quickly and work independently.",
+      pills:["Customer Support","Email Management","Administrative Support","Data Entry","Follow-up","Research","Microsoft Excel","Power BI","Google Workspace","Microsoft Office","Data Analysis","Process Coordination","Problem Solving","Time Management","Organization"],
+      processEyebrow:"How I work", processTitle:"Simple, clear and focused on getting things done.", processIntro:"My goal is to become a reliable extension of your team.",
+      stepsH:["Understand","Organize","Execute","Follow up"],
+      stepsP:["I learn your business, process and priorities.","I structure tasks, information and deadlines.","I complete assigned tasks with attention to detail.","I communicate progress and keep pending items visible."],
+      whyEyebrow:"Why work with me?", whyTitle:"Professional experience you can bring into remote support.",
+      whyIntro:"My approach combines operational discipline with clear communication, adaptability and a strong sense of ownership.",
+      whyH:["Organized","Remote-ready","Adaptable","Problem-solving oriented"],
+      whyP:[
+        "I keep tasks, information and deadlines structured so priorities stay visible and work moves forward.",
+        "Experienced working from home, managing priorities independently and coordinating with people remotely.",
+        "I learn new tools, processes and workflows quickly and adjust to the needs of each team.",
+        "I look for practical solutions, communicate issues clearly and follow through until the task is completed."
+      ],
+      langEyebrow:"Languages", langTitle:"Communication across different contexts.",
+      langNames:["Spanish","English","Portuguese"], langLevels:["Native","B2 · Upper-Intermediate","Basic"],
+      contactEyebrow:"Let's connect", contactTitle:"Need someone reliable to support your customers and operations?",
+      contactText:"Tell me what you need help with. I'd love to learn about your business and see how I can contribute remotely.",
+      contactBtn:"Contact me →", linkedin:"LinkedIn", whatsapp:"WhatsApp",
+      footer2:"Customer Service • Virtual Assistance • Remote Support"
+    },
+    es: {
+      nav:["Sobre mí","Servicios","Experiencia","Por qué yo","Habilidades","Contacto"],
+      heroEyebrow:"Soporte Remoto • Atención al Cliente • Asistencia Administrativa",
+      heroTitle:"Ayudo a las empresas a mantenerse organizadas, ágiles y enfocadas en sus clientes.",
+      availability:"Disponible para oportunidades remotas",
+      heroText:"Soy Nicole Gomez, Ingeniera Industrial con experiencia en operaciones, planificación, logística y coordinación entre equipos. Brindo soporte remoto confiable para atención al cliente, tareas administrativas, seguimiento y operaciones del día a día.",
+      heroBtn1:"Trabajemos juntos →", heroBtn2:"Ver mis servicios",
+      profileTitle:"Nicole Gomez", profileSub:"Atención al Cliente | Asistencia Administrativa - Soporte Remoto",
+      stat1:"Años de experiencia", stat2:"Preparada para remoto", stat3:"Idiomas",
+      aboutEyebrow:"Sobre mí", aboutTitle:"Soporte confiable respaldado por experiencia operativa real.",
+      about:[
+        "Soy Ingeniera Industrial con experiencia profesional en Supply Chain, planificación, inventarios, logística y coordinación con equipos internos, proveedores y socios internacionales.",
+        "También tengo experiencia trabajando desde casa y coordinando actividades de forma remota, lo que fortaleció mi capacidad para trabajar de manera independiente, gestionar prioridades, comunicarme con claridad y cumplir con los plazos.",
+        "Esta experiencia me enseñó a organizar grandes volúmenes de información, hacer seguimiento de múltiples actividades y resolver problemas de manera proactiva.",
+        "Hoy llevo estas habilidades al área de Atención al Cliente y Asistencia Administrativa Remota, ayudando a las empresas a mantener a sus clientes atendidos y sus operaciones diarias organizadas."
+      ],
+      servicesEyebrow:"En qué puedo ayudarte", servicesTitle:"Soporte flexible para tus necesidades del día a día.",
+      servicesIntro:"Me adapto a tus procesos, herramientas y prioridades, ya sea que necesites atención al cliente, asistencia administrativa o seguimiento operativo.",
+      servicesH:["Atención al Cliente","Asistencia Virtual","Soporte de Datos y Administrativo","Seguimiento y Coordinación"],
+      servicesP:[
+        "Soporte por correo y chat, consultas de clientes, seguimiento, resolución de problemas y comunicación profesional clara.",
+        "Apoyo administrativo, organización de tareas, documentación, investigación, coordinación de agenda y seguimiento diario.",
+        "Excel, ingreso de datos, archivos de seguimiento, reportes, actualización de información y documentación estructurada.",
+        "Seguimiento de tareas pendientes, coordinación con diferentes equipos, control de plazos y actualización de información."
+      ],
+      expEyebrow:"Experiencia profesional", expTitle:"Experiencia que aporta estructura al soporte remoto.",
+      expP:"Mi experiencia en Supply Chain y operaciones fortaleció las mismas habilidades que son importantes en el soporte remoto: organización, comunicación, seguimiento, atención al detalle y resolución de problemas.",
+      expH:["Supply Chain y Operaciones","Coordinación Multifuncional","Seguimiento de Procesos","Datos y Reportes"],
+      expCards:[
+        "Experiencia profesional coordinando planificación, inventarios, logística y procesos operativos en un entorno corporativo estructurado.",
+        "Trabajo con equipos internos, proveedores y socios internacionales, manteniendo alineados la información, documentación y seguimientos.",
+        "Experiencia monitoreando plazos, actividades pendientes, disponibilidad de materiales y continuidad operativa.",
+        "Facilidad para trabajar con Excel, reportes, archivos de seguimiento y datos para apoyar una toma de decisiones organizada."
+      ],
+      skillsEyebrow:"Habilidades y herramientas", skillsTitle:"Organizada, adaptable y cómoda con herramientas digitales.",
+      skillsIntro:"La combinación de experiencia operativa y habilidades digitales me permite aprender nuevos flujos de trabajo rápidamente y trabajar de forma independiente.",
+      pills:["Atención al Cliente","Gestión de Correos","Soporte Administrativo","Ingreso de Datos","Seguimiento","Investigación","Microsoft Excel","Power BI","Google Workspace","Microsoft Office","Análisis de Datos","Coordinación de Procesos","Resolución de Problemas","Gestión del Tiempo","Organización"],
+      processEyebrow:"Cómo trabajo", processTitle:"Simple, claro y enfocado en hacer que las cosas sucedan.", processIntro:"Mi objetivo es convertirme en una extensión confiable de tu equipo.",
+      stepsH:["Entender","Organizar","Ejecutar","Dar seguimiento"],
+      stepsP:["Conozco tu negocio, procesos y prioridades.","Organizo tareas, información y plazos.","Completo las tareas asignadas con atención al detalle.","Comunico avances y mantengo visibles los pendientes."],
+      whyEyebrow:"¿Por qué trabajar conmigo?", whyTitle:"Experiencia profesional que puedo aportar al soporte remoto.",
+      whyIntro:"Mi enfoque combina disciplina operativa con comunicación clara, adaptabilidad y un fuerte sentido de responsabilidad.",
+      whyH:["Organizada","Preparada para remoto","Adaptable","Orientada a la resolución de problemas"],
+      whyP:[
+        "Mantengo organizadas las tareas, la información y los plazos para que las prioridades sean visibles y el trabajo avance.",
+        "Experiencia trabajando desde casa, gestionando prioridades de forma independiente y coordinando con personas de manera remota.",
+        "Aprendo rápidamente nuevas herramientas, procesos y flujos de trabajo, adaptándome a las necesidades de cada equipo.",
+        "Busco soluciones prácticas, comunico los problemas con claridad y hago seguimiento hasta completar la tarea."
+      ],
+      langEyebrow:"Idiomas", langTitle:"Comunicación en diferentes contextos.",
+      langNames:["Español","Inglés","Portugués"], langLevels:["Nativo","B2 · Intermedio alto","Básico"],
+      contactEyebrow:"Conectemos", contactTitle:"¿Necesitas a alguien confiable para apoyar a tus clientes y operaciones?",
+      contactText:"Cuéntame qué necesitas. Me encantaría conocer tu negocio y saber cómo puedo contribuir de forma remota.",
+      contactBtn:"Contáctame →", linkedin:"LinkedIn", whatsapp:"WhatsApp",
+      footer2:"Atención al Cliente • Asistencia Virtual • Soporte Remoto"
+    }
+  };
+
+  function setText(sel, value){ const el=$(sel); if(el) el.textContent=value; }
+  function setHTML(sel, value){ const el=$(sel); if(el) el.innerHTML=value; }
+
+  function apply(lang){
+    const t=T[lang];
+    document.documentElement.lang=lang;
+    document.title = lang==="es" ? "Nicole Gomez | Atención al Cliente y Asistencia Administrativa Remota" : "Nicole Gomez | Remote Customer Service & Administrative Support";
+    const nav=$$(".navlinks > a");
+    nav.forEach((a,i)=>a.textContent=t.nav[i]);
+
+    setText(".hero .eyebrow",t.heroEyebrow);
+    setText(".hero h1",t.heroTitle);
+    setText(".hero p strong",t.availability);
+    const heroP=$(".hero p"); 
+    if(heroP){ heroP.innerHTML='<strong style="color:#8b6f5a">'+t.availability+'</strong><br><br>'+t.heroText; }
+    const heroBtns=$$(".hero .buttons a"); heroBtns[0].textContent=t.heroBtn1; heroBtns[1].textContent=t.heroBtn2;
+    setText(".profile-card h3",t.profileTitle); setText(".profile-card > p",t.profileSub);
+    const statLabels=$$(".profile-card .stat span"); [t.stat1,t.stat2,t.stat3].forEach((v,i)=>{if(statLabels[i])statLabels[i].textContent=v});
+
+    setText("#about .eyebrow",t.aboutEyebrow); setText("#about .section-title",t.aboutTitle);
+    $$("#about .about-copy p").forEach((e,i)=>e.textContent=t.about[i]);
+
+    setText("#services .eyebrow",t.servicesEyebrow); setText("#services .section-title",t.servicesTitle); setText("#services .section-intro",t.servicesIntro);
+    $$("#services .card h3").forEach((e,i)=>e.textContent=t.servicesH[i]);
+    $$("#services .card p").forEach((e,i)=>e.textContent=t.servicesP[i]);
+
+    setText("#experience .eyebrow",t.expEyebrow); setText("#experience .section-title",t.expTitle); setText("#experience .section-intro",t.expP);
+    $$("#experience .card h3").forEach((e,i)=>e.textContent=t.expH[i]);
+    $$("#experience .card p").forEach((e,i)=>e.textContent=t.expCards[i]);
+
+    setText("#skills .eyebrow",t.skillsEyebrow); setText("#skills .section-title",t.skillsTitle); setText("#skills .section-intro",t.skillsIntro);
+    $$("#skills .pill").forEach((e,i)=>e.textContent=t.pills[i]);
+
+    setText(".process .eyebrow",t.processEyebrow); setText(".process .section-title",t.processTitle); setText(".process .section-intro",t.processIntro);
+    $$(".process .step h3").forEach((e,i)=>e.textContent=t.stepsH[i]);
+    $$(".process .step p").forEach((e,i)=>e.textContent=t.stepsP[i]);
+
+    setText("#why-me .eyebrow",t.whyEyebrow); setText("#why-me .section-title",t.whyTitle); setText("#why-me .section-intro",t.whyIntro);
+    $$("#why-me .card h3").forEach((e,i)=>e.textContent=t.whyH[i]);
+    $$("#why-me .card p").forEach((e,i)=>e.textContent=t.whyP[i]);
+
+    const languageSection=$$("body > section").find(sec=>!sec.id && !sec.classList.contains("process") && sec.querySelector(".languages"));
+    if(languageSection){
+      const e=languageSection.querySelector(".eyebrow"), h=languageSection.querySelector(".section-title");
+      if(e)e.textContent=t.langEyebrow; if(h)h.textContent=t.langTitle;
+      $$(".lang strong",languageSection).forEach((e,i)=>e.textContent=t.langNames[i]);
+      $$(".lang span",languageSection).forEach((e,i)=>e.textContent=t.langLevels[i]);
+    }
+
+    setText("#contact .eyebrow",t.contactEyebrow); setText("#contact h2",t.contactTitle); setText("#contact p",t.contactText);
+    const cb=$$("#contact .buttons a"); if(cb[0])cb[0].textContent=t.contactBtn; if(cb[1])cb[1].textContent=t.linkedin; if(cb[2])cb[2].textContent=t.whatsapp;
+    const footerSpans=$$("footer span"); if(footerSpans[1])footerSpans[1].textContent=t.footer2;
+
+    $$("[data-lang-btn]").forEach(b=>b.classList.toggle("active",b.dataset.langBtn===lang));
+    localStorage.setItem("nicolePortfolioLang",lang);
+  }
+
+  $$("[data-lang-btn]").forEach(b=>b.addEventListener("click",()=>apply(b.dataset.langBtn)));
+  apply(localStorage.getItem("nicolePortfolioLang") || "en");
+})();
+</script>
+
 </body>
 </html>
