@@ -25,7 +25,7 @@ nav{position:sticky;top:0;z-index:10;background:rgba(248,246,242,.92);backdrop-f
 .lang-btn.active{background:#20232a;color:#fff}
 @media(max-width:800px){.navlinks{display:none}.nav{height:64px}.lang-switch{margin-left:auto}.logo{font-size:20px}}
 .hero{padding:34px 0 34px}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
 .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--accent);font-weight:800;margin-bottom:18px}
 h1{font-size:clamp(46px,7vw,78px);line-height:1.02;letter-spacing:-.045em;margin-bottom:26px}
 .hero p{font-size:19px;color:var(--muted);max-width:680px}
@@ -73,7 +73,7 @@ section{padding:42px 0}
 footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media(max-width:800px){
- .navlinks{display:none}.hero{padding:38px 0 30px}.hero-grid{align-items:start}.hero-grid,.about{grid-template-columns:1fr;gap:24px}.profile-card{padding:18px}.profile-card h3{font-size:25px}.profile-card img{width:92px !important;height:92px !important;max-width:92px !important;border-radius:50% !important;object-fit:cover !important;object-position:center 25% !important;margin-bottom:16px !important}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.languages{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats{margin-top:18px}.stat{padding:16px 18px}
+ .navlinks{display:none}.hero{padding:38px 0 30px}.hero-grid,.about{grid-template-columns:1fr;gap:24px}.profile-card{padding:18px}.profile-card h3{font-size:25px}.profile-card img{width:92px !important;height:92px !important;max-width:92px !important;border-radius:50% !important;object-fit:cover !important;object-position:center 25% !important;margin-bottom:16px !important}.cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.languages{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats{margin-top:18px}.stat{padding:16px 18px}
 }
 @media(max-width:520px){h1{font-size:45px}.steps{grid-template-columns:1fr}.section-title{font-size:32px}.eyebrow{margin-bottom:10px}.hero p{font-size:17px}.buttons{margin-top:22px}.profile-card h3{font-size:24px}section{padding:34px 0}}
 </style>
@@ -168,8 +168,8 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
   <div class="skills">
    <span class="pill">Customer Support</span><span class="pill">Email Management</span><span class="pill">Administrative Support</span>
    <span class="pill">Data Entry</span><span class="pill">Follow-up</span><span class="pill">Research</span>
-   <span class="pill">Microsoft Excel</span><span class="pill">Google Workspace</span>
-   <span class="pill">Microsoft Office</span><span class="pill">Calendar Coordination</span><span class="pill">Document Management</span>
+   <span class="pill">Microsoft Excel</span><span class="pill">Power BI</span><span class="pill">Google Workspace</span>
+   <span class="pill">Microsoft Office</span><span class="pill">Data Analysis</span><span class="pill">Process Coordination</span>
    <span class="pill">Problem Solving</span><span class="pill">Time Management</span><span class="pill">Organization</span>
   </div>
  </div>
@@ -210,7 +210,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
   <h2 class="section-title">Communication across different contexts.</h2>
   <div class="languages">
    <div class="lang"><strong>Spanish</strong><span>Native</span></div>
-   <div class="lang"><strong>English</strong><span>B1 · Intermediate</span></div>
+   <div class="lang"><strong>English</strong><span>B2 · Upper-Intermediate</span></div>
    <div class="lang"><strong>Portuguese</strong><span>Basic</span></div>
   </div>
  </div>
@@ -223,10 +223,9 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
   <p>Tell me what you need help with. I'd love to learn about your business and see how I can contribute remotely.</p>
   <p style="font-size:14px;margin-top:10px"><strong>Email:</strong> <a href="mailto:nicolegomez565@gmail.com" style="text-decoration:underline;text-underline-offset:3px">nicolegomez565@gmail.com</a> &nbsp; · &nbsp; <strong>WhatsApp:</strong> <a href="https://wa.me/59160174880" target="_blank" style="text-decoration:underline;text-underline-offset:3px">+591 60174880</a></p>
   <div class="buttons" style="justify-content:center">
-   <a class="btn primary" href="mailto:nicolegomez565@gmail.com">Contact me →</a>
    <a class="btn secondary" id="emailButton" href="mailto:nicolegomez565@gmail.com">Email</a>
-   <a class="btn secondary" href="https://www.linkedin.com/in/nicole-gomez-4402a6200" target="_blank">LinkedIn</a>
-   <a class="btn secondary" href="https://wa.me/59160174880" target="_blank">WhatsApp</a>
+   <a class="btn secondary" href="https://www.linkedin.com/in/nicole-gomez-4402a6200" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+   <a class="btn secondary" href="https://wa.me/59160174880" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   </div>
  </div>
 </section>
@@ -280,7 +279,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
       ],
       skillsEyebrow:"Skills & tools", skillsTitle:"Organized, adaptable and comfortable with digital tools.",
       skillsIntro:"A combination of operational experience and digital skills allows me to learn new workflows quickly and work independently.",
-      pills:["Customer Support","Customer Communication","Email Management","Administrative Support","Data Entry","Calendar Coordination","Document Management","Follow-up","Internet Research","Microsoft Excel","Google Workspace","Microsoft Office","Process Coordination","Task Prioritization","Problem Solving","Attention to Detail","Time Management","Organization"],
+      pills:["Customer Support","Email Management","Administrative Support","Data Entry","Follow-up","Research","Microsoft Excel","Power BI","Google Workspace","Microsoft Office","Data Analysis","Process Coordination","Problem Solving","Time Management","Organization"],
       processEyebrow:"How I work", processTitle:"Simple, clear and focused on getting things done.", processIntro:"My goal is to become a reliable extension of your team.",
       stepsH:["Understand","Organize","Execute","Follow up"],
       stepsP:["I learn your business, process and priorities.","I structure tasks, information and deadlines.","I complete assigned tasks with attention to detail.","I communicate progress and keep pending items visible."],
@@ -294,7 +293,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
         "I look for practical solutions, communicate issues clearly and follow through until the task is completed."
       ],
       langEyebrow:"Languages", langTitle:"Communication across different contexts.",
-      langNames:["Spanish","English","Portuguese"], langLevels:["Native","B1 · Intermediate","Basic"],
+      langNames:["Spanish","English","Portuguese"], langLevels:["Native","B2 · Upper-Intermediate","Basic"],
       contactEyebrow:"Let's connect", contactTitle:"Need someone reliable to support your customers and operations?",
       contactText:"Tell me what you need help with. I'd love to learn about your business and see how I can contribute remotely.",
       contactBtn:"Contact me →", emailBtn:"Email", linkedin:"LinkedIn", whatsapp:"WhatsApp",
@@ -336,7 +335,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
       ],
       skillsEyebrow:"Habilidades y herramientas", skillsTitle:"Organizada, adaptable y cómoda con herramientas digitales.",
       skillsIntro:"La combinación de experiencia operativa y habilidades digitales me permite aprender nuevos flujos de trabajo rápidamente y trabajar de forma independiente.",
-      pills:["Atención al Cliente","Comunicación con Clientes","Gestión de Correos","Soporte Administrativo","Ingreso de Datos","Coordinación de Calendarios","Gestión de Documentos","Seguimiento","Investigación en Internet","Microsoft Excel","Google Workspace","Microsoft Office","Coordinación de Procesos","Priorización de Tareas","Resolución de Problemas","Atención al Detalle","Gestión del Tiempo","Organización"],
+      pills:["Atención al Cliente","Gestión de Correos","Soporte Administrativo","Ingreso de Datos","Seguimiento","Investigación","Microsoft Excel","Power BI","Google Workspace","Microsoft Office","Análisis de Datos","Coordinación de Procesos","Resolución de Problemas","Gestión del Tiempo","Organización"],
       processEyebrow:"Cómo trabajo", processTitle:"Simple, claro y enfocado en hacer que las cosas sucedan.", processIntro:"Mi objetivo es convertirme en una extensión confiable de tu equipo.",
       stepsH:["Entender","Organizar","Ejecutar","Dar seguimiento"],
       stepsP:["Conozco tu negocio, procesos y prioridades.","Organizo tareas, información y plazos.","Completo las tareas asignadas con atención al detalle.","Comunico avances y mantengo visibles los pendientes."],
@@ -409,7 +408,7 @@ footer{padding:35px 0;border-top:1px solid var(--line);font-size:13px;color:var(
 
     setText("#contact .eyebrow",t.contactEyebrow);
     setText("#emailButton",t.emailBtn); setText("#contact h2",t.contactTitle); setText("#contact p",t.contactText);
-    const cb=$$("#contact .buttons a"); if(cb[0])cb[0].textContent=t.contactBtn; if(cb[1])cb[1].textContent=t.linkedin; if(cb[2])cb[2].textContent=t.whatsapp;
+    const cb=$$("#contact .buttons a"); if(cb[0])cb[0].textContent=t.emailBtn; if(cb[1])cb[1].textContent=t.linkedin; if(cb[2])cb[2].textContent=t.whatsapp;
     const footerSpans=$$("footer span"); if(footerSpans[1])footerSpans[1].textContent=t.footer2;
 
     $$("[data-lang-btn]").forEach(b=>b.classList.toggle("active",b.dataset.langBtn===lang));
